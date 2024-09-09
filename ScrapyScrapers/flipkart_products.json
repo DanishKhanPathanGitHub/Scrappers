@@ -1,0 +1,19 @@
+{
+    "1":{
+        "request-status": "OK",
+        "product-title": "KWINE CASE Tempered Glass Guard for Poco M6 Pro 5G",
+        "price": "₹295",
+        "categories": [
+            "Mobiles & Accessories",
+            "Mobile Accessories"
+        ]
+    },
+    "2":{
+        "request-status": "OK",
+        "product-title": "Noise Colorfit Icon 2 1.8'' Display with Bluetooth Calling, AI Voice Assistant Smartwatch",
+        "price": "₹1,499",
+        "categories": [
+            "Wearable Smart Devices"
+        ]
+    }
+}
