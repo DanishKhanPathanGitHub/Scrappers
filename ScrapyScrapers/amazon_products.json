@@ -1,0 +1,36 @@
+{
+    "request-status": "OK",
+    "product-title": "Mastering Kafka Streams and ksqlDB: Building Real-Time Data Systems by Example (Grayscale Indian Edition)",
+    "price": "1,70000",
+    "categories": [
+        "Books",
+        "Higher Education Textbooks",
+        "Computer Science"
+    ]
+},
+{
+    "request-status": "OK",
+    "product-title": "boAt Wave Sigma 3 w/Turn-by-Turn Navigation, 2.01\" (5.1 cm) HD Display, BT Calling, Crest+ OS, QR Tray, Watch Face Studio, Coins, Emergency SOS Smart Watch for Men & Women(Metal Black)",
+    "availability": "In stock",
+    "price": "1,64900",
+    "categories": [
+        "Electronics",
+        "Wearable Technology",
+        "Smart Watches"
+    ],
+    "ISBN13": null,
+    "ISBN10": null
+},
+{
+    "request-status": "OK",
+    "product-title": "Noise Newly Launched Halo 2 Smart Watch 1st Ever Functional Rotating Dial (Axe-Cut Bezel), 1.43\" AMOLED, Stainless Steel Build, Custom Transition Effects, BT Calling, Health Suite (Vintage Brown)",
+    "availability": "In stock",
+    "price": "4,499",
+    "categories": [
+        "Electronics",
+        "Wearable Technology",
+        "Smart Watches"
+    ],
+    "ISBN13": null,
+    "ISBN10": null
+},

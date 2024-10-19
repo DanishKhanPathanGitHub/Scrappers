@@ -1,13 +1,13 @@
 import scrapy
 import json
 
-class AmazonProductSpider(scrapy.Spider):
-    name = 'amazon_scraper'
-    allowed_domains = ['amazon.in']
+class BookSwaganProductSpider(scrapy.Spider):
+    name = 'bookswagan_scraper'
+    allowed_domains = ['bookswagan.com']
 
     def __init__(self, product_url=None, *args, **kwargs):
-        super(AmazonProductSpider, self).__init__(*args, **kwargs)
-        self.output_file = 'amazon_products.json'
+        super(BookSwaganProductSpider, self).__init__(*args, **kwargs)
+        self.output_file = 'bookswagan_product_detail.json'
         
         # Store the URL passed from run_spider.py
         if product_url:
@@ -17,21 +17,21 @@ class AmazonProductSpider(scrapy.Spider):
 
     def parse(self, response):
         # Scrape the title
-        title = response.css('#productTitle::text').get()
-        if title:
-            title = title.strip()
+        title = response.xpath('//span[@id="ctl00_phBody_ProductDetail_lblTitle"]/text()').get()
 
-        availability = response.css('#availabilityInsideBuyBox_feature_div .a-size-medium::text').get().strip()
-        if availability == 'In stock':
-            availability = True
+        # Extract availability
+        availability = response.xpath('//span[@id="ctl00_phBody_ProductDetail_lblAvailable"]/text()').get()
+        if availability == 'Out of Stock':
+            availability = False
         else:
-            availability=False
-        # Scrape the price
-        price = response.xpath('//div[@id="corePriceDisplay_desktop_feature_div"]//span[contains(@class, "a-price-whole")]/text()').get()
-        # Scrape categories from the breadcrumb section
-        categories = response.css('#wayfinding-breadcrumbs_feature_div .a-link-normal::text').getall()
-        categories = [category.strip() for category in categories if category.strip()]
+            availability = True
+        # Extract price
+        price = response.xpath('//div[@class="mobileprice"]/span[@class="a-price"]/text()').get()
 
+        categories = response.css('div#categories div.col-sm-12 ul.list-unstyled.blacklistreview li a::text').getall()
+        categories = [category.strip() for category in categories if category.strip()]  # Clean categories
+
+        print(categories or None)
         # Prepare the scraped data
         scraped_data = {
             'request-status': 'OK',

@@ -18,12 +18,17 @@ class FlipkartProductSpider(scrapy.Spider):
         """Extract product details."""
         # Extract the product title, price, and categories using Scrapy selectors
         title = response.css('.VU-ZEz::text').get()
+        unavailable = response.css('.QqFHMw.vslbG+._3Yl67G._7Pd1Fp::attr(disabled)').get()
+        availability = True
+        if unavailable:
+            availability = False
         price = response.css('div.Nx9bqj.CxhGGd::text').get()
         categories = response.css('.r2CdBx .R0cyWM::text').getall()[1:-2]
 
         scraped_data = {
             'request-status': 'OK',
             'product-title': title,
+            'availability':availability,
             'price': price,
             'categories': categories
         }
